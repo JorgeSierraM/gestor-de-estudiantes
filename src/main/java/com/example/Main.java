@@ -63,9 +63,19 @@ public class Main {
                     }
 
                     estudiantes.add(new Estudiante(nombre, n1, n2, n3));
-                    System.out.println("✅ Estudiante agregado correctamente.");
+                    System.out.println("Estudiante agregado correctamente.");
                     break;
-            
+                
+                case LISTAR:
+                    System.out.println("Lista De Estudiantes");
+                    if (estudiantes.isEmpty()) {
+                        System.out.println("No hay estudiantes registrados");
+                    } else {
+                        for (Estudiante estudiante : estudiantes) {
+                            System.out.println(estudiante);
+                        }
+                    }
+                    break;
                 default:
                     break;
             }
