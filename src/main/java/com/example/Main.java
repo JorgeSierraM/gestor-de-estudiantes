@@ -10,7 +10,7 @@ public class Main {
         int opcion;
         final int AGREGAR = 1;
         final int LISTAR = 2;
-        final int Buscar = 3;
+        final int BUSCAR = 3;
         final int SALIR = 4;
 
         do {
@@ -48,7 +48,7 @@ public class Main {
                         if (n2 >= 0 && n2 <= 5) {
                             break;
                         } else {
-                            System.out.println("Nota invalida, ingrese una nota entre 0,0 y 5,0");
+                            System.out.println("Nota invalida, ingrese una nota entre 0,0 y 5,0.");
                         }
                     }
                     while (true) {
@@ -58,7 +58,7 @@ public class Main {
                         if (n3 >= 0 && n3 <= 5) {
                             break;
                         } else {
-                            System.out.println("Nota invalida, ingrese una nota entre 0,0 y 5,0");
+                            System.out.println("Nota invalida, ingrese una nota entre 0,0 y 5,0.");
                         }
                     }
 
@@ -69,17 +69,37 @@ public class Main {
                 case LISTAR:
                     System.out.println("Lista De Estudiantes");
                     if (estudiantes.isEmpty()) {
-                        System.out.println("No hay estudiantes registrados");
+                        System.out.println("No hay estudiantes registrados.");
                     } else {
                         for (Estudiante estudiante : estudiantes) {
                             System.out.println(estudiante);
                         }
                     }
                     break;
+                
+                case BUSCAR:
+                    System.out.print("Ingresa el nombre del estudiante: ");
+                    String buscar = sc.nextLine();
+
+                    for (Estudiante estudiante : estudiantes) {
+                        if (estudiante.getNombre().equalsIgnoreCase(buscar)) {
+                            System.out.println(estudiante);
+                        } else {
+                            System.out.println("Estudiante no encontrado.");
+                        }
+                    }
+                    
+                    break;
+
+                case SALIR:
+                    System.out.println("Saliendo...");
+                    break;
                 default:
+                    System.out.println("Opcion invalida.");
                     break;
             }
 
         } while (opcion != 4);
+        sc.close();
     }
 }
